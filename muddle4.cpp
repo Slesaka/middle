@@ -2,7 +2,7 @@
 using namespace std;
 
 int itc_rev_oct_num(long long number){
-    if (number < 0){
+    if (number <= 0){
         return -1;
     }
     long long number2 = number;
@@ -22,7 +22,7 @@ int itc_rev_oct_num(long long number){
     return rez;
 }
 int itc_rev_covert_num(long long number, int ss){
-    if (number < 0){
+    if (number <= 0){
         return -1;
     }
     long long number2 = number;
@@ -42,7 +42,7 @@ int itc_rev_covert_num(long long number, int ss){
     return rez;
 }
 int itc_covert_num(long long number, int ss){
-    if (number < 0){
+    if (number <= 0){
         return -1;
     }
     int k = 1;

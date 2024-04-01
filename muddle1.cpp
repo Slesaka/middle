@@ -5,6 +5,9 @@ void itc_num_print(int number){
     cout << number << endl;
 }
 int itc_len_num(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     int kol = 0;
     while (number > 0){
         number /= 10;
@@ -13,6 +16,9 @@ int itc_len_num(long long number){
     return kol;
 }
 int itc_sum_num(long long number){
+    if (number <= 0){
+        return -1;
+    }
     int number2, sum = 0;
     while (number > 0){
         number2 = number % 10;
@@ -22,6 +28,9 @@ int itc_sum_num(long long number){
     return sum;
 }
 long long itc_multi_num(long long number){
+    if (number <= 0){
+        return -1;
+    }
     int number2, proz = 1;
     while (number > 0){
         number2 = number % 10;
@@ -31,6 +40,9 @@ long long itc_multi_num(long long number){
     return proz;
 }
 int itc_max_num(long long number){
+    if (number <= 0){
+        return -1;
+    }
     int number2, mmax = 0;
     while (number > 0){
         number2 = number % 10;

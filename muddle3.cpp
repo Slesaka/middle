@@ -5,6 +5,9 @@ int itc_second_max_num(long long number){
     if (number < 10){
         return -1;
     }
+    if (number <= 0) {
+        return -1;
+    }
     int mmax = 0, mmax2 = -10000;
     while (number != 0){
         if (mmax < number % 10){
@@ -20,6 +23,9 @@ int itc_second_max_num(long long number){
 }
 int itc_second_simple_max_num(long long number){
     if (number < 10){
+        return -1;
+    }
+    if (number <= 0) {
         return -1;
     }
     int mmax = 0, mmax2 = -10000;
@@ -52,6 +58,9 @@ long long itc_bin_num(long long number){
     return itog;
 }
 long long itc_oct_num(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     if (number < 0){
         return -1;
     }
@@ -65,7 +74,7 @@ long long itc_oct_num(long long number){
     return itog;
 }
 int itc_rev_bin_num(long long number){
-    if (number < 0){
+    if (number <= 0){
         return -1;
     }
     long long number2 = number;

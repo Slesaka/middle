@@ -2,6 +2,9 @@
 using namespace std;
 
 int itc_min_num(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     int number2, mmin = 9;
     while (number > 0){
         number2 = number % 10;
@@ -14,6 +17,9 @@ int itc_min_num(long long number){
 }
 int itc_rev_num(long long number)
 {
+    if (number <= 0) {
+        return -1;
+    }
     /*long long number2, number3 = 0;
     while (number > 0){
         number2 = number % 10;
@@ -48,6 +54,9 @@ int itc_rev_num(long long number)
 }
 
 int itc_null_count(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     long long kol;
     while (number != 0){
         if (number % 10 == 0){
@@ -58,6 +67,9 @@ int itc_null_count(long long number){
     return kol;
 }
 bool itc_mirror_num(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     long long number2, number3 = 0;
     number2 = number;
     while (number != 0){
@@ -70,6 +82,9 @@ bool itc_mirror_num(long long number){
     return false;
 }
 int itc_mirror_count(long long number){
+    if (number <= 0) {
+        return -1;
+    }
     int kol = 0;
     for (int i = 1; i <= number; i++){
         if (itc_mirror_num(i) == true){
