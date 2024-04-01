@@ -41,42 +41,4 @@ int itc_max_num(long long number){
     }
     return mmax;
 }
-int itc_min_num(long long number){
-    int number2, mmin = 9;
-    while (number > 0){
-        number2 = number % 10;
-        if (number2 < mmin){
-            mmin = number2;
-        }
-        number /= 10;
-    }
-    return mmin;
-}
-int itc_rev_num(long long number)
-{
-    /*int number2, number3 = 0;
-    while (number > 0){
-        number2 = number % 10;
-        number3 = number3 * 10 + number2;
-        number /= 10;
-    }
-    return number3;*/
 
-    //113 311
-
-    int number2, number3 = 0, kop, kol = 0;
-    kop = number;
-    while (number > 0){
-        number2 = number % 10;
-        number3 = number3 * 10 + number2;
-        number /= 10;
-    }
-    while(kop > 0){
-        if (number3 % 10 != kop % 10){
-            kol++;
-        }
-        number3 /= 10;
-        kop /= 10;
-    }
-    return kol;
-}
