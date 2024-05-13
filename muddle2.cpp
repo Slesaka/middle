@@ -2,10 +2,14 @@
 using namespace std;
 
 int itc_min_num(long long number){
-    if (number <= 0) {
-        return -1;
+    int number2, mmin = 10;
+    while (number < 0){
+        number2 = number % 10;
+        if (number2 < mmin){
+            mmin = number2;
+        }
+        number /= 10;
     }
-    int number2, mmin = 9;
     while (number > 0){
         number2 = number % 10;
         if (number2 < mmin){

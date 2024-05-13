@@ -29,22 +29,30 @@ int itc_sum_num(long long number){
 return sum;
 }
 long long itc_multi_num(long long number){
-    if (number <= 0){
-        return -1;
+    int number2, fl = 1, proz = 1;
+    if (number < 0){
+        fl = 0;
+        number = -number;
     }
-    int number2, proz = 1;
     while (number > 0){
         number2 = number % 10;
         proz *= number2;
         number /= 10;
     }
+    if (fl == 0){
+        proz = -proz;
+    }
     return proz;
 }
 int itc_max_num(long long number){
-    if (number <= 0){
-        return -1;
+    int number2, mmax = -10;
+    while (number < 0){
+        number2 = number % 10;
+        if (number2 > mmax){
+            mmax = number2;
+        }
+        number /= 10;
     }
-    int number2, mmax = 0;
     while (number > 0){
         number2 = number % 10;
         if (number2 > mmax){
