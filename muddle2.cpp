@@ -2,28 +2,26 @@
 using namespace std;
 
 int itc_min_num(long long number){
-    int number2, mmin = 10;
-    while (number < 0){
-        number2 = number % 10;
-        if (number2 < mmin){
-            mmin = number2;
-        }
-        number /= 10;
+    int mmin = 10;
+    int num;
+    if(number == 0){
+        return 0;
     }
-    while (number > 0){
-        number2 = number % 10;
-        if (number2 < mmin){
-            mmin = number2;
-        }
-        number /= 10;
+    if(number < 0){
+        number = number * -1;
     }
+    while(number != 0){
+        num = number % 10;
+        if(mmin > num){
+            mmin = num;
+        }
+        number = number / 10;
+    }
+
     return mmin;
-}
+    }
 int itc_rev_num(long long number)
 {
-    if (number <= 0) {
-        return -1;
-    }
     /*long long number2, number3 = 0;
     while (number > 0){
         number2 = number % 10;
@@ -48,13 +46,19 @@ int itc_rev_num(long long number)
     }
     return kol;*/
 
-    long long number2, number3 = 0;
-    while (number > 0){
-        number2 = number % 10;
-        number3 = number3 * 10 + number2;
-        number /= 10;
+
+    long long num;
+    long long num2 = 0;
+    if(number < 0){
+        number = number * -1;
     }
-    return itc_len_num(number3);
+    while(number > 0){
+        num = number % 10;
+        num2 = num2 * 10 + num;
+        number = number / 10;
+    }
+    return itc_len_num(num2);
+
 }
 
 int itc_null_count(long long number){
