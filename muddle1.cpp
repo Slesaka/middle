@@ -5,21 +5,28 @@ void itc_num_print(int number){
     cout << number << endl;
 }
 int itc_len_num(long long number){
-    int kol = 0;
-    while (number > 0){
-        number /= 10;
-        kol ++;
+    long long kol = 0;
+    if(number == 0){
+        return 1;
     }
-    return kol;
+    while(number != 0){
+        kol++;
+        number = number / 10;
+    }
+return kol;
 }
 int itc_sum_num(long long number){
-    int number2, sum = 0;
-    while (number > 0){
-        number2 = number % 10;
-        sum += number2;
-        number /= 10;
+    long long sum = 0;
+    long long num;
+    while(number != 0){
+        num = number % 10;
+        sum += num;
+        number = number / 10;
     }
-    return sum;
+    if(sum < 0){
+        sum *= -1;
+    }
+return sum;
 }
 long long itc_multi_num(long long number){
     if (number <= 0){
