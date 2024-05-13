@@ -16,48 +16,46 @@ int itc_len_num(long long number){
 return kol;
 }
 int itc_sum_num(long long number){
-    int number2, sum = 0;
-    while (number > 0){
-        number2 = number % 10;
-        sum += number2;
-        cout << number2 << " " << sum << endl;
-        number /= 10;
+    long long sum = 0;
+    long long num;
+    while(number != 0){
+        num = number % 10;
+        sum += num;
+        number = number / 10;
     }
-    return sum;
+    if(sum < 0){
+        sum = sum * -1;
+    }
+return sum;
 }
 
 long long itc_multi_num(long long number){
-    int number2, fl = 1, proz = 1;
-    if (number < 0){
-        fl = 0;
-        number = -number;
+    long long proz = 1;
+    long long num;
+    while(number != 0){
+        num = number % 10;
+        proz = proz * num;
+        number = number / 10;
     }
-    while (number > 0){
-        number2 = number % 10;
-        proz *= number2;
-        number /= 10;
+    if(proz < 0){
+        proz = proz * -1;
     }
-    if (fl == 0){
-        proz = -proz;
-    }
-    return proz;
+return proz;
 }
 
 int itc_max_num(long long number){
-    int number2, mmax = -10;
-    while (number < 0){
-        number2 = number % 10;
-        if (number2 > mmax){
-            mmax = number2;
-        }
-        number /= 10;
+    int maxi = 0;
+    int num;
+    if(number < 0){
+        number = number * -1;
     }
-    while (number > 0){
-        number2 = number % 10;
-        if (number2 > mmax){
-            mmax = number2;
+    while(number != 0){
+        num = number % 10;
+        if(maxi < num){
+            maxi = num;
         }
-        number /= 10;
+        number = number / 10;
     }
-    return mmax;
+
+    return maxi;
 }
