@@ -1,25 +1,33 @@
 #include "middle.h"
 using namespace std;
 
+//11
 int itc_second_max_num(long long number){
-    if (number < 10){
+    long long num = 0;
+    if(number < 0){
+        number = number * -1;
+    }
+    if(number / 10 == 0){
         return -1;
     }
-    if (number <= 0) {
+    long long maxi = -1, maxi2 = -1;
+    else{
+        while(number != 0){
+            num = number % 10;
+            if(maxi <= num){
+                maxi2 = maxi;
+                maxi = num;
+            }
+            if(num < maxi && num > maxi2){
+                maxi2 = number % 10;
+            }
+            number = number / 10;
+        }
+    }
+    if(maxi2 == -10){
         return -1;
     }
-    int mmax = 0, mmax2 = -10000;
-    while (number != 0){
-        if (mmax < number % 10){
-            mmax2 = mmax;
-            mmax = number % 10;
-        }
-        else if (mmax2 < number % 10){
-            mmax2 = number % 10;
-        }
-        number /= 10;
-    }
-    return mmax2;
+    return maxi2;
 }
 int itc_second_simple_max_num(long long number){
     if (number < 10){
@@ -45,15 +53,12 @@ int itc_second_simple_max_num(long long number){
     return mmax2;
 }
 long long itc_bin_num(long long number){
-    if (number < 0){
-        return -1;
-    }
-    int k = 1;
     long long itog = 0;
-    while (number != 0){
-        itog = itog + number % 2 * k;
-        number /= 2;
-        k *= 10;
+    int k = 1;
+    while(number > 0){
+        itog = itog + ( number % 2) * k;
+        k = k * 10;
+        number = number / 2;
     }
     return itog;
 }
