@@ -62,15 +62,21 @@ int itc_rev_num(long long number)
 }
 
 int itc_null_count(long long number){
-    if (number <= 0) {
-        return -1;
+    long long num;
+    long long kol = 0;
+    if(number == 0){
+        return 1;
     }
-    long long kol;
-    while (number != 0){
-        if (number % 10 == 0){
+    if(number < 0){
+        number *= -1;
+    }
+    while(number > 0){
+        num = number % 10;
+        if(num == 0){
             kol++;
         }
-        number /= 10;
+        number = number /10;
+
     }
     return kol;
 }
