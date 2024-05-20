@@ -29,38 +29,46 @@ int itc_second_max_num(long long number){
     }
     return maxi2;
 }
-int itc_second_simple_max_num(long long number){
-    if (number < 10){
+int itc_secind_simpe_max_num(long long number){
+    int mmax = -1, z = 0, lok = -1;
+    if(number < 0){
+        number = number * -1;
+    }
+    if(number/10 == 0){
         return -1;
     }
-    if (number <= 0) {
-        return -1;
-    }
-    int mmax = 0, mmax2 = -10000;
-    while (number != 0){
-        if (mmax < number % 10){
-            mmax2 = mmax;
-            mmax = number % 10;
+    else{
+        while(number != 0){
+            z = number%10;
+            if(mmax <= z){
+                lok = mmax;
+                mmax = z;
         }
-        else if (mmax2 < number % 10){
-            mmax2 = number % 10;
+        if(z < mmax && z > lok){
+            lok = z;
         }
-        number /= 10;
+        number = number / 10;
     }
-    if (mmax == mmax2){
+    if(lok == mmax){
         return -1;
     }
-    return mmax2;
+    else{
+        return -1;
+    }
+    }
 }
+
 long long itc_bin_num(long long number){
-    long long itog = 0;
-    int k = 1;
+    int l = 0;
+    int ch = 10;
+    long long num = 0;
     while(number > 0){
-        itog = itog + ( number % 2) * k;
-        k = k * 10;
+        l = number%2;
         number = number / 2;
+        num = ch * l + num;
+        ch = ch * 10;
     }
-    return itog;
+    return num/10;
 }
 long long itc_oct_num(long long number){
     if (number <= 0) {
