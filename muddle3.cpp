@@ -11,7 +11,7 @@ int itc_second_max_num(long long number){
         return -1;
     }
     long long maxi = -1, maxi2 = -1;
-    else{
+    if(number >= 0){
         while(number != 0){
             num = number % 10;
             if(maxi <= num){
