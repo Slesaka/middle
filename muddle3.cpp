@@ -29,7 +29,7 @@ int itc_second_max_num(long long number){
     }
     return maxi2;
 }
-int itc_second_simpe_max_num(long long number){
+int itc_second_simple_max_num(long long number){
     int mmax = -1, z = 0, lok = -1;
     if(number < 0){
         number = number * -1;
